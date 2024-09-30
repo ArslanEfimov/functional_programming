@@ -1,0 +1,34 @@
+name: Erlang CI
+
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+
+      - name: Set up Erlang/OTP
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: '26.0'
+          rebar3-version: '3.20.0'
+
+      # Сборка проекта
+      - name: Compile project
+        run: rebar3 compile
+
+      # Запуск тестов
+      - name: Run tests
+        run: rebar3 eunit
