@@ -28,7 +28,9 @@ jobs:
       # Сборка проекта
       - name: Compile project
         run: rebar3 compile
+        working-directory: lab1_fp
 
       # Запуск тестов
       - name: Run tests
         run: rebar3 eunit
+        working-directory: lab1_fp
