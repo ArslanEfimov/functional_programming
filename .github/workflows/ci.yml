@@ -32,5 +32,5 @@ jobs:
 
       # Запуск тестов
       - name: Run tests
-        run: rebar3 eunit
+        run: rebar3 eunit -v
         working-directory: lab1_fp
