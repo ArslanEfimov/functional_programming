@@ -6,7 +6,7 @@
 %%% @end
 %%% Created : 30. сент. 2024 19:53
 %%%-------------------------------------------------------------------
--module(recursion_tests_euler_9).
+-module(tests_euler_9).
 -author("arslanefimov").
 
 -include_lib("eunit/include/eunit.hrl").
