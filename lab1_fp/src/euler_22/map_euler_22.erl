@@ -8,7 +8,7 @@
 -export([main/0]).
 
 main() ->
-  {ok, Binary} = file:read_file("/Users/arslanefimov/IdeaProjects/functional_programming/lab1_fp/src/euler_22/names.txt"),
+  {ok, Binary} = file:read_file("src/euler_22/names.txt"),
   Names = format_names(binary_to_list(Binary)),
 
   SortedNames = generate_sequence(Names),
