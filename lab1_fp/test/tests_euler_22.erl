@@ -8,14 +8,14 @@
 
 -define(assertEqual, macro_body).
 
-recursion_euler_22_test() ->
-    ?assertEqual(871198282, recursion_euler_22:main()).
+euler22_recursion_test() ->
+    ?assertEqual(871198282, euler22_recursion:find_final_score()).
 
-tail_recursion_euler_22_test() ->
-    ?assertEqual(871198282, tail_recursion_euler_22:main()).
+euler22_tail_recursion_test() ->
+    ?assertEqual(871198282, euler22_tail_recursion:find_final_score()).
 
-modular_implementation_euler_22_test() ->
-    ?assertEqual(871198282, modular_implementation_euler_22:main()).
+euler22_modular_implementation_test() ->
+    ?assertEqual(871198282, euler22_modular_implementation:find_final_score()).
 
-map_euler_22_test() ->
-    ?assertEqual(871198282, map_euler_22:main()).
+euler22_map_test() ->
+    ?assertEqual(871198282, euler22_map:find_final_score()).

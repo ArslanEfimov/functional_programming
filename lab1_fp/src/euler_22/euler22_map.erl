@@ -1,24 +1,14 @@
-%%%-------------------------------------------------------------------
-%%% @author arslanefimov
-
--module(map_euler_22).
--author("arslanefimov").
-
+-module(euler22_map).
 %% API
--export([main/0]).
+-export([find_final_score/0]).
 
-main() ->
+find_final_score() ->
   {ok, Binary} = file:read_file("src/euler_22/names.txt"),
   Names = format_names(binary_to_list(Binary)),
-
   SortedNames = generate_sequence(Names),
-
   FilteredNames = filter_names(SortedNames),
-
   Scores = calculate_scores(FilteredNames),
-
   TotalScore = lists:sum(Scores),
-  io:format("Total score: ~p~n", [TotalScore]),
   TotalScore.
 
 generate_sequence(Names) ->
@@ -36,7 +26,8 @@ char_uppercase(Char) ->
 
 calculate_scores(Names) ->
   lists:map(fun({Name, Index}) ->
-                      name_value(Name) * Index end, lists:zip(Names, lists:seq(1, length(Names)))).
+    name_value(Name) * Index end,
+    lists:zip(Names, lists:seq(1, length(Names)))).
 
 
 name_value(Name) ->

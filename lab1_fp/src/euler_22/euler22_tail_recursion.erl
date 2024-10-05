@@ -1,13 +1,12 @@
--module(recursion_euler_22).
--export([main/0]).
+-module(euler22_tail_recursion).
+-export([find_final_score/0]).
 
-main() ->
+find_final_score() ->
   {ok, Binary} = file:read_file("src/euler_22/names.txt"),
   Names = format_names(binary_to_list(Binary)),
   SortedNames = quicksort(Names),
-  Scores = calculate_scores(SortedNames, 1),
+  Scores = calculate_scores(SortedNames),
   TotalScore = lists:sum(Scores),
-  io:format("Total score: ~p~n", [TotalScore]),
   TotalScore.
 
 quicksort([]) -> [];
@@ -21,10 +20,15 @@ format_names(Content) ->
   NameList = string:tokens(Content, "\",\""),
   NameList.
 
-calculate_scores([], _) -> [];
-calculate_scores([Name | Rest], Index) ->
+calculate_scores(Names) ->
+  calculate_scores(Names, 1, []).
+
+calculate_scores([], _, Acc) ->
+  lists:reverse(Acc);
+
+calculate_scores([Name | Rest], Index, Acc) ->
   Score = name_value(Name) * Index,
-  [Score | calculate_scores(Rest, Index + 1)].
+  calculate_scores(Rest, Index + 1, [Score | Acc]).
 
 
 name_value(Name) ->

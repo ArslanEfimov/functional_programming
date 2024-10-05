@@ -14,14 +14,14 @@
 
 -define(assertEqual, macro_body).
 
-recursion_euler_9_test() ->
-  ?assertEqual(31875000, recursion_euler_9:find_triplet()).
+euler9_recursion_test() ->
+  ?assertEqual(31875000, euler9_recursion:find_triplet()).
 
-tail_recursion_euler_9_test() ->
-  ?assertEqual(31875000, tail_recursion_euler_9:find_triplet()).
+euler9_tail_recursion_test() ->
+  ?assertEqual(31875000, euler9_tail_recursion:find_triplet()).
 
-modular_implementation_euler_9_test() ->
-  ?assertEqual(31875000, modular_implementation_euler_9:find_triplet()).
+euler9_modular_implementation_test() ->
+  ?assertEqual(31875000, euler9_modular_implementation:find_triplet()).
 
-map_euler_9_test() ->
-  ?assertEqual(31875000, map_euler_9:find_triplet()).
+euler9_map_test() ->
+  ?assertEqual(31875000, euler9_map:find_triplet()).

@@ -1,18 +1,13 @@
--module(modular_implementation_euler_22).
--export([main/0]).
+-module(euler22_modular_implementation).
+-export([find_final_score/0]).
 
-main() ->
+find_final_score() ->
   {ok, Binary} = file:read_file("src/euler_22/names.txt"),
   Names = format_names(binary_to_list(Binary)),
-
   SortedNames = generate_sequence(Names),
-
   FilteredNames = filter_names(SortedNames),
-
   Scores = calculate_scores(FilteredNames),
-
   TotalScore = lists:sum(Scores),
-  io:format("Total score: ~p~n", [TotalScore]),
   TotalScore.
 
 generate_sequence(Names) ->
@@ -29,7 +24,9 @@ char_uppercase(Char) ->
   Char >= $A andalso Char =< $Z.
 
 calculate_scores(Names) ->
-  lists:foldl(fun({Index, Name}, Acc) -> Score = name_value(Name) * Index, [Score | Acc] end, [], lists:zip(lists:seq(1, length(Names)), Names)).
+  lists:foldl(fun({Index, Name}, Acc) -> Score = name_value(Name) * Index,
+    [Score | Acc] end, [],
+    lists:zip(lists:seq(1, length(Names)), Names)).
 
 
 name_value(Name) ->

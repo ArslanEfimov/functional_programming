@@ -1,22 +1,10 @@
-%%%-------------------------------------------------------------------
-%%% @author arslanefimov
-%%% @copyright (C) 2024
-%%% @doc
-%%%
-%%% @end
-%%% Created : 29. сент. 2024 17:20
-%%%-------------------------------------------------------------------
--module(map_euler_9).
--author("arslanefimov").
-
-%% API
+-module(euler9_map).
 -export([find_triplet/0]).
 
 find_triplet() ->
   Triplets = generate_triplets(),
   PythagoreanTriplets = filter_pythagorean_triplets(Triplets),
   {A, B, C} = find_product(PythagoreanTriplets),
-  io:format("Product: ~p~n", [A * B * C]),
   A * B * C.
 
 generate_triplets() ->
@@ -25,7 +13,7 @@ generate_triplets() ->
       lists:map(fun(B) ->
         C = 1000 - A - B,
         {A, B, C}
-                end, lists:seq(A+1, 999))
+                end, lists:seq(A + 1, 999))
               end, lists:seq(1, 498))).
 
 filter_pythagorean_triplets(Triplets) ->
