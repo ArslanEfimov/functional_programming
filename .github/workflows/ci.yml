@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        folder: [lab1_fp]
+        folder: [lab1_fp, lab2_fp]
 
     defaults:
       run:
@@ -48,7 +48,7 @@ jobs:
 
     strategy:
       matrix:
-        folder: [lab1_fp]
+        folder: [lab1_fp, lab2_fp]
 
     defaults:
       run:
@@ -71,3 +71,8 @@ jobs:
       - name: Run Eunit tests
         run: |
           rebar3 eunit -v
+
+      - name: Run Property-Based tests
+        working-directory: lab2_fp
+        run: |
+            rebar3 proper
