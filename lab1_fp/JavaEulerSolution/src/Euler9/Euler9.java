@@ -1,5 +1,7 @@
 package Euler9;
 
+import java.util.HashSet;
+
 public class Euler9 {
     public static void main(String[] args) {
         System.out.println(find_triplet());

@@ -33,6 +33,7 @@ jobs:
       - name: Code formatting erlfmt test
         run: |
           rebar3 fmt --check --verbose
+    
 
       - name: Run dialyzer
         run: |
