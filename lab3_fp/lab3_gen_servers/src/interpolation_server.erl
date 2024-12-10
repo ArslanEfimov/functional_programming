@@ -15,8 +15,8 @@
 -export([points_generator/3]).
 
 %% Starts the output server
-start_link(Config) ->
-  gen_server:start_link({local, ?MODULE}, ?MODULE, [Config], []).
+start_link(InitialValues) ->
+  gen_server:start_link({local, ?MODULE}, ?MODULE, [InitialValues], []).
 
 stop() ->
   gen_server:cast(?MODULE, stop).
